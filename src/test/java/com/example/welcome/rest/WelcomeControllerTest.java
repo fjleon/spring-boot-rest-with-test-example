@@ -25,40 +25,40 @@ import io.restassured.module.mockmvc.RestAssuredMockMvc;
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 public class WelcomeControllerTest {
 
-	@Autowired
-	private WebApplicationContext webApplicationContext;
-	
-	@LocalServerPort
+    @Autowired
+    private WebApplicationContext webApplicationContext;
+
+    @LocalServerPort
     int port;
-	
-	@Before
-	public void setup() {
-		RestAssured.port = port; 
-		RestAssuredMockMvc.webAppContextSetup(webApplicationContext);
-	}
-	
-	@Test 
-	public void sortValidTest() {
-		given()
-			.contentType(ContentType.JSON)
-			.body(Arrays.asList(1, 15, 5, 7, 3))
-		.when()
-			.post("/welcome")
-		.then()
-			.statusCode(HttpStatus.OK.value())
-			.body("", equalTo(Arrays.asList(15, 7, 3, 5, 1)));
-	}
-	
-	@Test
-	public void sortEmptyTest() {
-		given()
-			.contentType(ContentType.JSON)
-			.body(new ArrayList<>())
-		.when()
-			.post("/welcome")
-		.then()
-			.statusCode(HttpStatus.OK.value())
-			.body("", equalTo(new ArrayList<>()));
-	}
-	
+
+    @Before
+    public void setup() {
+	RestAssured.port = port;
+	RestAssuredMockMvc.webAppContextSetup(webApplicationContext);
+    }
+
+    @Test
+    public void sortValidTest() {
+	given()
+	    .contentType(ContentType.JSON)
+	    .body(Arrays.asList(1, 15, 5, 7, 3))
+	.when()
+	    .post("/welcome")
+	.then()
+	    .statusCode(HttpStatus.OK.value())
+	    .body("", equalTo(Arrays.asList(15, 7, 3, 5, 1)));
+    }
+
+    @Test
+    public void sortEmptyTest() {
+	given()
+	    .contentType(ContentType.JSON)
+	    .body(new ArrayList<>())
+	.when()
+	    .post("/welcome")
+	.then()
+	    .statusCode(HttpStatus.OK.value())
+	    .body("", equalTo(new ArrayList<>()));
+    }
+
 }

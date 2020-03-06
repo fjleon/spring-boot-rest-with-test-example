@@ -18,32 +18,32 @@ import com.example.welcome.service.OrderingService;
 @SpringBootTest
 public class OrderingServiceImplTest {
 
-	@Autowired
-	private OrderingService orderingService;
-	
-	@Test
-	public void sort1Test() {
-		List<Integer> expected = Arrays.asList(15,7,3,5,1);
-		List<Integer> result = orderingService.sort(Arrays.asList(1,15,5,7,3));
-		assertThat(result).containsExactlyElementsOf(expected);
-	}
-	
-	@Test
-	public void sort2Test() {
-		List<Integer> expected = Arrays.asList(1,1,1,1,1);
-		List<Integer> result = orderingService.sort(Arrays.asList(1,1,1,1,1));
-		assertThat(result).containsExactlyElementsOf(expected);
-	}
-	
-	@Test
-	public void sortEmptyTest() {
-		List<Integer> result = orderingService.sort(new ArrayList<>());
-		assertThat(result).isEmpty();
-	}
-	
-	@Test(expected = java.lang.NullPointerException.class)
-	public void sortNullTest() {
-		orderingService.sort(null);
-	}
-	
+    @Autowired
+    private OrderingService orderingService;
+
+    @Test
+    public void sort1Test() {
+	List<Integer> expected = Arrays.asList(15, 7, 3, 5, 1);
+	List<Integer> result = orderingService.sort(Arrays.asList(1, 15, 5, 7, 3));
+	assertThat(result).containsExactlyElementsOf(expected);
+    }
+
+    @Test
+    public void sort2Test() {
+	List<Integer> expected = Arrays.asList(1, 1, 1, 1, 1);
+	List<Integer> result = orderingService.sort(Arrays.asList(1, 1, 1, 1, 1));
+	assertThat(result).containsExactlyElementsOf(expected);
+    }
+
+    @Test
+    public void sortEmptyTest() {
+	List<Integer> result = orderingService.sort(new ArrayList<>());
+	assertThat(result).isEmpty();
+    }
+
+    @Test(expected = java.lang.NullPointerException.class)
+    public void sortNullTest() {
+	orderingService.sort(null);
+    }
+
 }
