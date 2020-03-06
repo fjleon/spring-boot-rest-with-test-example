@@ -17,15 +17,15 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 public class WelcomeController {
 
-	@Autowired
-	private OrderingService orderingService;
-	
-	@PostMapping(value = "/welcome", produces = MediaType.APPLICATION_JSON_VALUE)
+    @Autowired
+    private OrderingService orderingService;
+
+    @PostMapping(value = "/welcome", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Integer>> welcome(@RequestBody List<Integer> list) {
-		log.debug("Request: {}", () -> list);
-		List<Integer> orderedList = orderingService.sort(list);
-		log.debug("Response: {}", () -> orderedList);
-		return ResponseEntity.ok(orderedList);
+	log.debug("Request: {}", () -> list);
+	List<Integer> orderedList = orderingService.sort(list);
+	log.debug("Response: {}", () -> orderedList);
+	return ResponseEntity.ok(orderedList);
     }
-	
+
 }
