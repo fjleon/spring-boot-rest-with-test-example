@@ -11,7 +11,7 @@
 	</parent>
 	
 	<groupId>com.example</groupId>
-	<artifactId>spring-boot-with-test-example</artifactId>
+	<artifactId>spring-boot-rest-with-test-example</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>Spring Boot with test example</name>
